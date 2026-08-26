@@ -1,3 +1,69 @@
 # Brief de Producto
 
-<!-- Versión 1 — TP1. Cada versión siguiente abre con un párrafo de qué cambió y por qué. -->
+Versión 1-TP1
+Esta es la primera versión del brief del producto UNLAM WayFinder, desarrollado por el equipo TAIKO. Al tratarse de la versión inicial, este documento establece las bases del proyecto definidas en el Trabajo Práctico 1, las cuales irán evolucionando y actualizándose en los próximos trabajos prácticos.
+
+1. Segmento Elegido de la Comunidad UNLaM y por qué ese
+El segmento específico sobre el cual se hace foco son los estudiantes ingresantes y de primer y segundo año de carreras de grado de la Universidad Nacional de La Matanza (UNLaM), pertenecientes a cualquier departamento académico y turno de cursada (mañana, tarde o noche), estimado en aproximadamente 30.000 a 35.000 estudiantes activos.
+
+Problemática del segmento
+Estos estudiantes necesitan tener un control y conocimiento más claro acerca de las aulas en las que deben cursar y/o rendir exámenes durante los cuatrimestres y mesas de exámenes, además de disponer de información básica sobre otras instalaciones (biblioteca, comedor universitario, centro de estudiantes, enfermería, etc.), incluyendo su localización exacta, disponibilidad, carrera, comisión y materia.
+
+Lo que distingue principalmente a este segmento es su escaso conocimiento de la distribución física del predio (sectores, alas, cuerpos, pisos y aulas especiales). Por este motivo, dependen de consultas presenciales o a terceros, generando mayor desorientación ante cambios o reasignaciones imprevistas de aulas.
+
+¿Por qué se eligió este segmento?
+Falta de una plataforma unificada: Actualmente no existe un espacio donde se centralice esta información y mucha de ella no se encuentra a disposición del alumnado, generando pérdida de tiempo.
+
+Procesos actuales deficientes: Durante los exámenes finales, por ejemplo, los listados se publican en tablones (a veces en fotocopias) y los cambios de última hora se realizan manualmente con lapicera, lo que genera confusión.
+
+Menor fricción en otros grupos: Los estudiantes avanzados ya memorizaron los recorridos y la dinámica de la universidad, por lo que el impacto en ellos es considerablemente menor. En cambio, en los ingresantes y primeros años se concentra la mayor fricción al trasladarse, buscar aulas o encontrar espacios para estudiar.
+
+2. Producto
+Nombre: UNLAM WayFinder (Front-end hosteado en Netlify y back-end alojado en Supabase).
+
+Problema que resuelve: La falta de información centralizada, la dificultad en la gestión de las instalaciones universitarias y la desorientación en los desplazamientos dentro del predio.
+
+A quién le resuelve:
+
+Principalmente: Estudiantes ingresantes y de primer/segundo año.
+
+Secundariamente: Profesores y personal administrativo encargados de la gestión de aulas.
+
+3. Funcionalidades Core
+Disponibilidad de información básica: Consulta de la disponibilidad de aulas e instalaciones en un día y franja horaria concreta (incluyendo carrera, materia, comisión y docentes asignados).
+
+Vistas diferenciadas por roles: Tres perfiles distintos ("Estudiante", "Profesor" y "Administrativo"), cada uno con permisos y funciones específicas.
+
+Administración en tiempo real: Panel para el usuario administrativo que permite actualizar el estado y la disponibilidad de las aulas de forma inmediata para el resto de los usuarios.
+
+Sistema de notificaciones: Alertas configurables según las preferencias del usuario ante cambios de aula, confirmación de aulas de exámenes, etc.
+
+Información de transporte: Datos básicos sobre los diferentes medios de transporte públicos circundantes a la Universidad.
+
+4. Integraciones Previstas
+Datos académicos institucionales: Carreras disponibles, planes de estudio actualizados, mapa de la universidad, horarios oficiales de instalaciones y materias cursadas por el alumno (opcional).
+
+SIU-Guaraní: Integración con la API de SIU-Guaraní para verificar la condición de estudiante activo y comprobar su identidad.
+
+Geolocalización / GPS: Integración con un sistema de geolocalización para mostrar rutas en el mapa desde la ubicación actual del usuario hasta el punto de destino dentro de la universidad.
+
+Transporte público: Integración con una API externa para obtener información en tiempo real sobre los horarios aproximados del transporte público en la zona.
+
+5. Grupos de Usuarios y Usuario Primario Elegido
+Estudiantes ingresantes y de primer y segundo año (Grupo Primario):
+
+Descripción: Alumnos de grado con poca familiaridad con la distribución física de la universidad.
+
+Motivación: Consultar rápidamente la ubicación de aulas y espacios, recibir notificaciones de cambios y evitar gestiones presenciales o informales.
+
+Profesores:
+
+Descripción: Docentes que dictan clases en distintas aulas.
+
+Motivación: Consultar disponibilidad de espacios y solicitar cambios de aula de manera sencilla ante imprevistos (por ejemplo, falta de espacio).
+
+Administrativos:
+
+Descripción: Personal a cargo de la gestión, asignación y disponibilidad de los espacios universitarios.
+
+Motivación: Centralizar la información, actualizar estados en tiempo real y agilizar las reasignaciones de comisiones.

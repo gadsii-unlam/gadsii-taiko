@@ -1,7 +1,7 @@
 # [Nombre del equipo]
 
-Integrantes: [nombre 1], [nombre 2], [nombre 3], [nombre 4], [nombre 5]
+Integrantes: [Fernandez, Juan Carlos], [Gomez, Matias], [Masino, Carlos Nicolas], [Becerra, Diego], [nombre 5]
 
-Producto: [una línea describiendo el producto — se completa en el TP1]
+Producto: [Producto software para agilizar la identificación y disponibilidad de aulas y diferentes instalaciones dentro de la UNLaM]
 
-Segmento de la comunidad UNLaM: [se completa en el TP1]
+Segmento de la comunidad UNLaM: [Estudiantes ingresantes y primer y segundo año de la carrera de grado]

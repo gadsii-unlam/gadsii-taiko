@@ -1,4 +1,4 @@
-# [Nombre del equipo]
+# [Taiko]
 
 Integrantes: [Fernandez, Juan Carlos], [Gomez, Matias], [Masino, Carlos Nicolas], [Becerra, Diego], [nombre 5]
 

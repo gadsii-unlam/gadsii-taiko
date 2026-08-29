@@ -1,4 +1,4 @@
-# Brief de Producto
+# Brief de Producto<!-- Versión 1 — TP1. Cada versión siguiente abre con un párrafo de qué cambió y por qué. -->
 
 Versión 1-TP1
 Esta es la primera versión del brief del producto UNLAM WayFinder, desarrollado por el equipo TAIKO. Al tratarse de la versión inicial, este documento establece las bases del proyecto definidas en el Trabajo Práctico 1, las cuales irán evolucionando y actualizándose en los próximos trabajos prácticos.

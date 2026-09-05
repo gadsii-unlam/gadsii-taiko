@@ -2,16 +2,16 @@
 
 **Equipo:** TAIKO
 
-**Versión:** 2 — TP2 (01/09/2026)
+**Versión:** 3 — TP3 (05/09/2026)
 
-**Estado:** Validado con evidencia empírica (relevamiento a usuarios reales)
+**Estado:** Scope de MVP definido, con hipótesis de valor validada en TP2
 
 > Aplicación de orientación e información dinámica para estudiantes
 > ingresantes y de primeros años de la UNLaM.
 
-## **Versión 2 — TP2 (01/09/2026)**
+## **Versión 3 — TP3 (05/09/2026)**
 
-**Qué cambió respecto de la versión anterior y por qué:** Esta segunda versión del brief actualiza las definiciones del producto incorporando la evidencia empírica obtenida tras aplicar encuestas a usuarios reales del grupo primario (U1, U2 y U3). Se incorporó formalmente el perfil de los usuarios reales reemplazando el enfoque estrictamente hipotético, se detallaron las necesidades, problemas y el contexto de uso relevado, se formuló la hipótesis de valor definitiva, y se documentó el estado de cada uno de los supuestos planteados en el TP1, confirmando el supuesto crítico sobre la desorientación en el campus y la necesidad de centralizar información de aulas y cambios de última hora.
+**Qué cambió respecto de la versión anterior y por qué:** Esta tercera versión del brief incorpora las definiciones sobre el scope del MVP que permite testear la hipótesis de valor formulada en el TP2, la distinción entre qué se construye de verdad y qué se resuelve a mano o se simula, el flujo principal de interacción del usuario, y los atributos de usabilidad priorizados con su justificación basada en el relevamiento.
 
 ---
 
@@ -149,3 +149,52 @@ Lo que distingue principalmente a este segmento es su escaso conocimiento de la 
 | S6 — Transporte público | **Sin evidencia directa** | Los usuarios resuelven esto mediante herramientas externas como Google Maps, sin manifestar demanda activa de integración en esta etapa. |
 | S7 — Solicitud de cambios de aula (Profesores) | **Sin evidencia (Fuera del alcance)** | No se realizaron mediciones directas sobre este grupo en el relevamiento enfocado en estudiantes. |
 | S8 — Gestión administrativa de aulas | **Sin evidencia (Fuera del alcance)** | Premisa de gestión interna que no contó con datos empíricos en esta instancia estudiantil. |
+
+---
+
+## 9. Scope del MVP
+ 
+El MVP es lo mínimo necesario para testear la hipótesis de valor, no el producto completo.
+ 
+| Incluido en el MVP | Para qué parte de la hipótesis sirve |
+| --- | --- |
+| Visualización del plano general del campus y selección de destinos (aulas, dependencias y servicios). | Testea si los ingresantes logran identificar visualmente su punto de partida y llegada sin depender de indicaciones verbales de terceros. |
+| Trazado y visualización de la ruta guiada hacia el aula o sector seleccionado. | Comprueba si el esquema de caminos evita que los alumnos pierdan entre 5 y 15 minutos y lleguen tarde a clases o exámenes. |
+| Sistema de notificaciones ante cambios de última hora (aviso dentro de la app). | Relacionado directamente a el segundo componente de la propuesta de valor definida ("un sistema de notificaciones automáticas ante reasignaciones") y su criterio de validación. Es además la funcionalidad que 2 de los 3 usuarios relevados (U2 y U3) priorizaron por sobre el mapa en la pregunta 29 del TP2. |
+
+<br>
+ 
+| Excluido del MVP | Por qué se excluye |
+| --- | --- |
+| Integración con los sistemas administrativos internos de la Universidad (el software que usa el personal para gestionar aulas). | El circuito de registro de cambios se construye dentro de la propia interfaz de WayFinder, sin conectarse a los sistemas que la Universidad ya usa internamente.<br>Conseguir ese acceso está fuera de nuestro alcance y no aporta a validar si el estudiante encuentra valor en recibir el aviso. |
+| Integración con la API de SIU-Guaraní y posicionamiento GPS en tiempo real. | La validación se centra en la utilidad cognitiva de la ruta visualizada, no en la validación de identidad ni en la tecnología de geolocalización en vivo ya que suman complejidad técnica innecesaria para esta etapa. |
+| Consulta de transporte público, horarios de instalaciones no académicas (comedor, enfermería, etc.). | El TP2 no encontró evidencia de que incluirlo ayude a confirmar o refutar la hipótesis en esta etapa: los usuarios ya cubren transporte por otros medios, sin manifestar demanda activa de integrarlo.<br>No significa que no sea importante, simplemente no forma parte del núcleo de los problemas de los que este MVP necesita aprender. |
+| Vista diferenciada para Profesores y Administrativos (login, permisos y pantallas propias por rol). | El MVP solo necesita validar el problema del usuario primario (estudiantes). El registro de cambios de aula durante la prueba lo resuelve un integrante del equipo directamente en Supabase (ver punto 10), sin necesitar una interfaz de administrador construida.<br>Además, los supuestos sobre profesores y administrativos (S7 y S8) quedaron "sin evidencia / fuera de alcance" en el TP2: no hay todavía evidencia real sobre esos grupos que justifique construirles una vista en esta etapa. |
+ 
+---
+ 
+## 10. Qué se construye y qué se simula
+ 
+| Elemento | Se construye | Se simula / se resuelve a mano | Por qué |
+| :---: | :---: | :---: | :---: |
+| Interfaz de usuario (Frontend) | ✓ | | Componente de software propio del equipo, debe estar construido de verdad en Netlify para garantizar una experiencia interactiva real. |
+| Base de datos de aulas y ubicaciones | | ✓ | Se precargan los datos de las ubicaciones y los trayectos manualmente en Supabase o en un archivo estático, ya que el objetivo es evaluar la utilidad de la ruta y no automatizar la ingesta de bases institucionales masivas. |
+| Generación y trazado de rutas | ✓ | | Se implementa la lógica visual para mostrar el camino seleccionado sobre el mapa del campus. |
+| Aviso de reasignación de aula | ✓<br>(pantalla/banner que ve el estudiante) | ✓<br>(detección del cambio) | La consulta siempre trae el estado actual del aula y avisa si difiere de la habitual. Lo que no se automatiza es enterarse del cambio: hoy no hay fuente digital, un integrante del equipo actualiza el registro en Supabase cuando el profesor lo pide. |
+| Validación de identidad del estudiante (SIU-Guaraní) | ✗ | ✗ | No aporta a testear la hipótesis; se excluye del MVP sin necesidad de simularla. |
+ 
+---
+ 
+## 11. Flujo principal del MVP
+ 
+1. **Apertura de la aplicación:** el estudiante ingresa desde su celular a la plataforma web alojada en Netlify.
+2. **Selección de ubicación:** el usuario indica su punto de origen actual dentro de la universidad (ej. ingreso principal o el departamento donde se encuentra).
+3. **Búsqueda de destino:** el usuario busca o selecciona el aula, oficina o servicio al que necesita dirigirse.
+4. **Visualización de la ruta:** el sistema consulta los datos almacenados y muestra el mapa del campus con el trazado de la ruta guiada, incluyendo el aviso si el aula fue reasignada.
+5. **Obtención del valor:** el estudiante visualiza con claridad el recorrido y se desplaza de manera autónoma, evitando pérdidas de tiempo y llegadas tarde.
+---
+ 
+## 12. Atributos de usabilidad priorizados
+ 
+* **Facilidad de aprendizaje:** prioritario porque los ingresantes se enfrentan por primera vez a la distribución física de la UNLaM y poseen nula familiaridad con cuerpos, alas y pisos. La interfaz debe ser intuitiva de forma inmediata, sin curva de aprendizaje previa ni manuales de uso.
+* **Eficiencia:** se prioriza porque los estudiantes relevados manifestaron transitar bajo situaciones de apuro y con tiempos acotados entre clases o antes de rendir un examen. El sistema debe resolver la búsqueda de una ubicación en pocos pasos, minimizando el tiempo de interacción con el celular mientras caminan por el predio.

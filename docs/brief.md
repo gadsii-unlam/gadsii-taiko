@@ -158,8 +158,7 @@ El MVP es lo mínimo necesario para testear la hipótesis de valor, no el produc
  
 | Incluido en el MVP | Para qué parte de la hipótesis sirve |
 | --- | --- |
-| Visualización del plano general del campus y selección de destinos (aulas, dependencias y servicios). | Testea si los ingresantes logran identificar visualmente su punto de partida y llegada sin depender de indicaciones verbales de terceros. |
-| Visualización de la ubicación del aula dentro del mapa del campus (navegación por niveles predio → planta → aula). | Ataca el componente más frecuente y mejor confirmado de la hipótesis: la desorientación al buscar aulas desconocidas (supuesto crítico del TP1). En la Q5 del TP2, 2 de los 3 usuarios calificaron la orientación general como difícil, es el problema de fondo que el mapa por niveles busca resolver, independientemente de si hubo o no una reasignación. |
+| Visualización del plano general del campus y la ubicación del aula dentro del mapa del campus (navegación por niveles predio → planta → aula). | Ataca el componente más frecuente y mejor confirmado de la hipótesis: la desorientación al buscar aulas desconocidas (supuesto crítico del TP1). En la Q5 del TP2, 2 de los 3 usuarios calificaron la orientación general como difícil, es el problema de fondo que el mapa por niveles busca resolver, independientemente de si hubo o no una reasignación. |
 | Sistema de notificaciones ante cambios de última hora (aviso dentro de la app). | Relacionado directamente a el segundo componente de la propuesta de valor definida ("un sistema de notificaciones automáticas ante reasignaciones") y su criterio de validación. Es además la funcionalidad que 2 de los 3 usuarios relevados (U2 y U3) priorizaron por sobre el mapa en la pregunta 29 del TP2. |
 
 <br>
@@ -180,7 +179,7 @@ El MVP es lo mínimo necesario para testear la hipótesis de valor, no el produc
 | Elemento | Se construye | Se simula / se resuelve a mano | Por qué |
 | :---: | :---: | :---: | :---: |
 | Interfaz de usuario (Frontend) | ✓ | | Componente de software propio del equipo, debe estar construido de verdad en Netlify para garantizar una experiencia interactiva real. |
-| Base de datos de aulas y ubicaciones | | ✓ | Se precargan los datos de las ubicaciones y los trayectos manualmente en Supabase o en un archivo estático, ya que el objetivo es evaluar la utilidad de la ruta y no automatizar la ingesta de bases institucionales masivas. |
+| Base de datos de aulas y ubicaciones | | ✓ | Se precargan los datos de las ubicaciones y los trayectos manualmente en Supabase o en un archivo estático, ya que el objetivo es evaluar la utilidad de la ubicacion y no automatizar la ingesta de bases institucionales masivas. |
 | Resaltado de ubicación en el mapa | ✓ | | Se implementa la lógica visual para resaltar el aula seleccionada y su estado, sin calcular una ruta desde un origen |
 | Aviso de reasignación de aula | ✓<br>(pantalla/banner que ve el estudiante) | ✓<br>(detección del cambio) | La consulta siempre trae el estado actual del aula y avisa si difiere de la habitual. Lo que no se automatiza es enterarse del cambio: hoy no hay fuente digital, un integrante del equipo actualiza el registro en Supabase cuando el profesor lo pide. |
 | Validación de identidad del estudiante (SIU-Guaraní) | ✗ | ✗ | No aporta a testear la hipótesis; se excluye del MVP sin necesidad de simularla. |

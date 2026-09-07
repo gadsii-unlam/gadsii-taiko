@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>TP3 - Tres alternativas de diseño - UNLaM WayFinder</title>
+<style>
+  :root{
+    --g0:#ffffff; --g1:#f2f2f2; --g2:#e2e2e2; --g3:#cfcfcf;
+    --g4:#a8a8a8; --g5:#7a7a7a; --g6:#4a4a4a; --g7:#222222;
+  }
+  *{box-sizing:border-box;}
+  body{ font-family: Arial, Helvetica, sans-serif; background:var(--g1); margin:0; padding:24px; color:var(--g7); }
+  h1{font-size:18px; margin:0 0 4px;}
+  .subtitle{color:var(--g5); font-size:13px; margin:0 0 24px;}
+  .cols{display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap;}
+  .col{width:210px;}
+  .col-head{
+    background:var(--g6); color:var(--g0); border-radius:8px 8px 0 0;
+    padding:10px 12px; text-align:center;
+  }
+  .col-head .letter{font-size:20px; font-weight:bold;}
+  .col-head .attr{font-size:12px; margin-top:2px;}
+  .col-body{
+    background:var(--g0); border:1px solid var(--g3); border-top:none;
+    border-radius:0 0 8px 8px; padding:16px 12px; min-height:520px;
+  }
+  .step{
+    background:var(--g1); border:1px solid var(--g3); border-radius:6px;
+    padding:8px 10px; font-size:11.5px; text-align:center; margin-bottom:6px;
+  }
+  .step b{display:block; font-size:12px; color:var(--g7); margin-bottom:2px;}
+  .step span{color:var(--g5);}
+  .arrow{ text-align:center; color:var(--g4); font-size:14px; margin:2px 0 6px; }
+  .empty-note{
+    text-align:center; color:var(--g4); font-size:11px; font-style:italic;
+    margin-top:10px; padding:10px; border:1px dashed var(--g3); border-radius:6px;
+  }
+  .summary{
+    margin-top:28px; background:var(--g0); border:1px solid var(--g3); border-radius:8px;
+    padding:16px 20px; max-width:900px;
+  }
+  .summary h2{font-size:14px; margin:0 0 10px;}
+  table{border-collapse:collapse; width:100%; font-size:12px;}
+  td, th{border:1px solid var(--g3); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--g2); color:var(--g6);}
+</style>
+</head>
+<body>
+
+<h1>TP3 — Parte 2, punto 6: tres alternativas de diseño</h1>
+<p class="subtitle">Mismo flujo principal del MVP (brief v3) — cada columna privilegia un atributo de usabilidad distinto. Esquema estructural, sin desarrollo de detalle.</p>
+
+<div class="cols">
+
+  <div class="col">
+    <div class="col-head"><div class="letter">A</div><div class="attr">Facilidad de aprendizaje</div></div>
+    <div class="col-body">
+      <div class="step"><b>Bienvenida</b><span>Qué es WayFinder</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>¿Dónde estás?</b><span>Ingreso o depto</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>Buscar aula</b><span>Materia o comisión</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>Confirmar viaje</b><span>Resumen origen-aula</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>Ruta y aviso</b><span>Mapa + cambio de aula</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>Llegaste</b><span>Aula confirmada</span></div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-head"><div class="letter">B</div><div class="attr">Eficiencia</div></div>
+    <div class="col-body">
+      <div class="step"><b>Mapa del predio</b><span>Pabellones, día y hora</span></div>
+      <div class="arrow">↓</div>
+      <div class="step" style="border-style:dashed;"><b>Planta</b><span>Solo si el edificio tiene más de un piso</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>Detalle de aula</b><span>Panel persistente: estado, materia, aviso</span></div>
+      <div class="empty-note">Búsqueda = atajo desde cualquier pantalla<br>nunca es terminal, siempre llega al detalle<br>Sin pantalla de origen ni favoritos</div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-head"><div class="letter">C</div><div class="attr">Prevención de errores</div></div>
+    <div class="col-body">
+      <div class="step"><b>Origen por defecto</b><span>Último conocido</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>Aula validada</b><span>Solo comisiones de hoy</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>Alerta de cambio</b><span>Aviso si fue reasignada</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>Ruta reversible</b><span>No perdés lo cargado</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>Confirmar llegada</b><span>Chequeo si hubo cambio</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="summary">
+  <h2>Diferencia estructural en una línea</h2>
+  <table>
+    <tr><th>Alternativa</th><th>Pantallas</th><th>Qué resuelve distinto</th></tr>
+    <tr><td><b>A</b></td><td>6</td><td>Cada paso se explica solo, con una confirmación explícita antes de trazar la ruta.</td></tr>
+    <tr><td><b>B</b></td><td>2 a 3 (según edificio) + búsqueda como atajo</td><td>Sin formulario de origen: se navega predio → (planta) → aula, o se salta directo con el buscador. El resultado (mapa con la ubicación resaltada + aviso, sin cálculo de ruta) vive en un panel persistente, no en una pantalla nueva. <i>Esta es la alternativa elegida — ver wireframe definitivo en docs/diseno/wireframe/.</i></td></tr>
+    <tr><td><b>C</b></td><td>5</td><td>Cada paso valida o confirma algo antes de dejar avanzar, con vuelta atrás disponible en todo momento.</td></tr>
+  </table>
+</div>
+
+</body>
+</html>

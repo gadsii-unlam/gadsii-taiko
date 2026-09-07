@@ -2,14 +2,14 @@
 
 **Equipo:** TAIKO
 
-**Versión:** 3 — TP3 (05/09/2026)
+**Versión:** 3 — TP3 (06/09/2026)
 
 **Estado:** Scope de MVP definido, con hipótesis de valor validada en TP2
 
 > Aplicación de orientación e información dinámica para estudiantes
 > ingresantes y de primeros años de la UNLaM.
 
-## **Versión 3 — TP3 (05/09/2026)**
+## **Versión 3 — TP3 (06/09/2026)**
 
 **Qué cambió respecto de la versión anterior y por qué:** Esta tercera versión del brief incorpora las definiciones sobre el scope del MVP que permite testear la hipótesis de valor formulada en el TP2, la distinción entre qué se construye de verdad y qué se resuelve a mano o se simula, el flujo principal de interacción del usuario, y los atributos de usabilidad priorizados con su justificación basada en el relevamiento.
 
@@ -159,14 +159,14 @@ El MVP es lo mínimo necesario para testear la hipótesis de valor, no el produc
 | Incluido en el MVP | Para qué parte de la hipótesis sirve |
 | --- | --- |
 | Visualización del plano general del campus y la ubicación del aula dentro del mapa del campus (navegación por niveles predio → planta → aula). | Ataca el componente más frecuente y mejor confirmado de la hipótesis: la desorientación al buscar aulas desconocidas (supuesto crítico del TP1). En la Q5 del TP2, 2 de los 3 usuarios calificaron la orientación general como difícil, es el problema de fondo que el mapa por niveles busca resolver, independientemente de si hubo o no una reasignación. |
-| Sistema de notificaciones ante cambios de última hora (aviso dentro de la app). | Relacionado directamente a el segundo componente de la propuesta de valor definida ("un sistema de notificaciones automáticas ante reasignaciones") y su criterio de validación. Es además la funcionalidad que 2 de los 3 usuarios relevados (U2 y U3) priorizaron por sobre el mapa en la pregunta 29 del TP2. |
+| Sistema de notificaciones ante cambios de última hora (aviso dentro de la app). | Relacionado directamente al segundo componente de la propuesta de valor definida ("un sistema de notificaciones automáticas ante reasignaciones") y su criterio de validación. Es además la funcionalidad que 2 de los 3 usuarios relevados (U2 y U3) priorizaron por sobre el mapa en la pregunta 29 del TP2. |
 
 <br>
  
 | Excluido del MVP | Por qué se excluye |
 | --- | --- |
 | Integración con los sistemas administrativos internos de la Universidad (el software que usa el personal para gestionar aulas). | El circuito de registro de cambios se construye dentro de la propia interfaz de WayFinder, sin conectarse a los sistemas que la Universidad ya usa internamente.<br>Conseguir ese acceso está fuera de nuestro alcance y no aporta a validar si el estudiante encuentra valor en recibir el aviso. |
-| Integración con la API de SIU-Guaraní, posicionamiento en tiempo real (GPS al aire libre, geofencing dentro de los edificios) y pathfinding. | La validación se centra en la utilidad cognitiva de la ruta visualizada, no en la validación de identidad ni en la tecnología de geolocalización en vivo ya que suman complejidad técnica innecesaria para esta etapa. Pathfinding requeriría modelar los pasillos como un grafo navegable. |
+| Integración con la API de SIU-Guaraní, posicionamiento en tiempo real (GPS al aire libre, geofencing dentro de los edificios) y pathfinding. | La validación se centra en la utilidad cognitiva de la ubicacion visualizada, no en la validación de identidad ni en la tecnología de geolocalización en vivo ya que suman complejidad técnica innecesaria para esta etapa. Pathfinding requeriría modelar los pasillos como un grafo navegable. |
 | Consulta de transporte público, horarios de instalaciones no académicas (comedor, enfermería, etc.). | El TP2 no encontró evidencia de que incluirlo ayude a confirmar o refutar la hipótesis en esta etapa: los usuarios ya cubren transporte por otros medios, sin manifestar demanda activa de integrarlo.<br>No significa que no sea importante, simplemente no forma parte del núcleo de los problemas de los que este MVP necesita aprender. |
 | Vista diferenciada para Profesores y Administrativos (login, permisos y pantallas propias por rol). | El MVP solo necesita validar el problema del usuario primario (estudiantes). El registro de cambios de aula durante la prueba lo resuelve un integrante del equipo directamente en Supabase (ver punto 10), sin necesitar una interfaz de administrador construida.<br>Además, los supuestos sobre profesores y administrativos (S7 y S8) quedaron "sin evidencia / fuera de alcance" en el TP2: no hay todavía evidencia real sobre esos grupos que justifique construirles una vista en esta etapa. |
 
